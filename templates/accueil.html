@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Oeuvre d'art</title>
+        <link href="static/styles.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <section id="galerie">
+        <h1>L'oeuvre d'art de Mechior !</h1>
+        <img src="static/oeuvre_art.png"  alt="Motif de pagne akan révolutionnaire">
+    </section>
+    <section id="messages">
+        <div id="livre-dor">
+            <h1>Livre d'or</h1>
+                <h1>Mes messages</h1>
+    {% if messages %}
+
+        {% for message in messages %}
+            <div class="message">
+                <div class="contenu">{{message.contenu}}</div>
+                <div class="auteur">Par {{message.auteur}}</div>
+                <div class="heure">{{message.heure}}</div>
+            </div>
+        {% endfor %}
+
+    {% endif %}
+        </div>
+        <div id="formulaire">
+            <form method="post" action="envois/">
+                <fieldset>
+                    <legend>Vos beaux commentaires</legend>
+                    <label for="contenu">Contenu du message</label>
+                    <input type="textarea" name="contenu">
+                    <label for="destinataire">Destinataire</label>
+                    <input type="textarea" name="destinataire">
+                    <input type="submit" value="Envoyer le message">
+                </fieldset>
+            </form>
+        </div>
+    </section>
+    </body>
+</html>
